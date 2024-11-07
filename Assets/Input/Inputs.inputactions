@@ -2,30 +2,156 @@
     "name": "Inputs",
     "maps": [
         {
-            "name": "New action map",
-            "id": "539179bd-aae6-4a2f-b43a-b2b673e9900f",
+            "name": "Vr",
+            "id": "0a7da3a5-8a16-41c7-b335-4c2132a60a16",
             "actions": [
                 {
-                    "name": "New action",
-                    "type": "Button",
-                    "id": "67a83bd7-7393-4fcc-b7b9-4f67c630debd",
+                    "name": "HmdRotation",
+                    "type": "Value",
+                    "id": "47d647cc-5867-461a-b64e-b9b5b9075933",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "HmdPosition",
+                    "type": "Value",
+                    "id": "cd955865-6e77-4400-b4ad-2cd5a03fd450",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Steer",
+                    "type": "Value",
+                    "id": "6d776173-6306-4be6-8f2e-f7c1f01a4abf",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "GasBreak",
+                    "type": "Value",
+                    "id": "2078f6cd-6855-4888-96c9-c64421aedd26",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
                 {
                     "name": "",
-                    "id": "04455d77-f54d-4fe2-b222-7159d68d0762",
-                    "path": "",
+                    "id": "039b33c7-3f11-4f00-86ef-4a1c0832e83b",
+                    "path": "<XRHMD>/deviceRotation",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "HmdRotation",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2b1a37a4-d57f-4d73-b5b8-8b795fd54d23",
+                    "path": "<XRHMD>/devicePosition",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HmdPosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "11ad3f9a-ab7c-49a3-ab8c-ce4724f7c79e",
+                    "path": "<XRController>/thumbstick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Steer",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a8f422a6-3cf5-4695-b175-4faa3f82eff5",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Steer",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "GamePad",
+                    "id": "d7d077c5-202d-48ee-a6c1-47cd73d8d940",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GasBreak",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "9792e0d5-2dfc-4389-8a4f-eb66a5c497b4",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GasBreak",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "b4f55ba2-c7db-4a7e-8616-eeacc46844d2",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GasBreak",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Xr",
+                    "id": "dd6e827b-9940-47a8-b6ff-2f700ee0cdd0",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GasBreak",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "1f96bcf0-ce96-462c-b9c6-ec8f73ab6252",
+                    "path": "<XRController>{LeftHand}/trigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GasBreak",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "d22cabb2-b5f5-4690-b9e1-dedb0e5999d9",
+                    "path": "<XRController>{RightHand}/trigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GasBreak",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }
