@@ -62,6 +62,15 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""ControlerCam"",
+                    ""type"": ""Value"",
+                    ""id"": ""bb5bda26-4b9b-4ebf-82d1-d40780d47512"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -174,6 +183,17 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                     ""action"": ""GasBreak"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""971e6c18-d08d-467e-ad82-65db7d3c51f1"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ControlerCam"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -186,6 +206,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         m_Vr_HmdPosition = m_Vr.FindAction("HmdPosition", throwIfNotFound: true);
         m_Vr_Steer = m_Vr.FindAction("Steer", throwIfNotFound: true);
         m_Vr_GasBreak = m_Vr.FindAction("GasBreak", throwIfNotFound: true);
+        m_Vr_ControlerCam = m_Vr.FindAction("ControlerCam", throwIfNotFound: true);
     }
 
     ~@Inputs()
@@ -256,6 +277,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_Vr_HmdPosition;
     private readonly InputAction m_Vr_Steer;
     private readonly InputAction m_Vr_GasBreak;
+    private readonly InputAction m_Vr_ControlerCam;
     public struct VrActions
     {
         private @Inputs m_Wrapper;
@@ -264,6 +286,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         public InputAction @HmdPosition => m_Wrapper.m_Vr_HmdPosition;
         public InputAction @Steer => m_Wrapper.m_Vr_Steer;
         public InputAction @GasBreak => m_Wrapper.m_Vr_GasBreak;
+        public InputAction @ControlerCam => m_Wrapper.m_Vr_ControlerCam;
         public InputActionMap Get() { return m_Wrapper.m_Vr; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -285,6 +308,9 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
             @GasBreak.started += instance.OnGasBreak;
             @GasBreak.performed += instance.OnGasBreak;
             @GasBreak.canceled += instance.OnGasBreak;
+            @ControlerCam.started += instance.OnControlerCam;
+            @ControlerCam.performed += instance.OnControlerCam;
+            @ControlerCam.canceled += instance.OnControlerCam;
         }
 
         private void UnregisterCallbacks(IVrActions instance)
@@ -301,6 +327,9 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
             @GasBreak.started -= instance.OnGasBreak;
             @GasBreak.performed -= instance.OnGasBreak;
             @GasBreak.canceled -= instance.OnGasBreak;
+            @ControlerCam.started -= instance.OnControlerCam;
+            @ControlerCam.performed -= instance.OnControlerCam;
+            @ControlerCam.canceled -= instance.OnControlerCam;
         }
 
         public void RemoveCallbacks(IVrActions instance)
@@ -324,5 +353,6 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         void OnHmdPosition(InputAction.CallbackContext context);
         void OnSteer(InputAction.CallbackContext context);
         void OnGasBreak(InputAction.CallbackContext context);
+        void OnControlerCam(InputAction.CallbackContext context);
     }
 }

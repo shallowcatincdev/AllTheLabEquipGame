@@ -40,6 +40,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "ControlerCam",
+                    "type": "Value",
+                    "id": "bb5bda26-4b9b-4ebf-82d1-d40780d47512",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -152,6 +161,17 @@
                     "action": "GasBreak",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "971e6c18-d08d-467e-ad82-65db7d3c51f1",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ControlerCam",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
