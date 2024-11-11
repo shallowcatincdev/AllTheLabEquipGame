@@ -12,33 +12,32 @@ public class HmdCameraMovement : MonoBehaviour
 
     public void OnHmdPosition(InputValue value)
     {
-        //vrActive = true;
-        Debug.Log(value.Get<Vector2>());
+        vrActive = true;
         cam.transform.position = value.Get<Vector3>() + camOrgin.position;
     }
 
     public void OnHmdRotation(InputValue value)
     {
-        //vrActive = true;
+        vrActive = true;
         cam.transform.rotation = camOrgin.rotation * value.Get<Quaternion>();
     }
 
-    //Vector2 rotation;
+    Vector2 rotation;
 
-    //public void OnControlerCam(InputValue value)
-    //{
-    //    rotation = value.Get<Vector2>();
-    //    rotation *= new Vector2(45, 5);
-    //}
+    public void OnControlerCam(InputValue value)
+    {
+        rotation = value.Get<Vector2>();
+        rotation *= new Vector2(45, 5);
+    }
 
 
-    //private void FixedUpdate()
-    //{
-    //    if (!vrActive)
-    //    {
-    //        cam.transform.rotation = camOrgin.rotation * Quaternion.Euler(rotation.y * -1, rotation.x, 0);
-    //    }
-        
-    //}
+    private void FixedUpdate()
+    {
+        if (!vrActive)
+        {
+            cam.transform.rotation = camOrgin.rotation * Quaternion.Euler(rotation.y * -1, rotation.x, 0);
+        }
+
+    }
 
 }
