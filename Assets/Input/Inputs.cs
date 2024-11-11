@@ -24,7 +24,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
     ""name"": ""Inputs"",
     ""maps"": [
         {
-            ""name"": ""Vr"",
+            ""name"": ""Input"",
             ""id"": ""0a7da3a5-8a16-41c7-b335-4c2132a60a16"",
             ""actions"": [
                 {
@@ -32,6 +32,15 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                     ""type"": ""Value"",
                     ""id"": ""47d647cc-5867-461a-b64e-b9b5b9075933"",
                     ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""ControlerCam"",
+                    ""type"": ""Value"",
+                    ""id"": ""dce74e91-a2f2-41f7-8ffd-1696378a2add"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -48,7 +57,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Steer"",
                     ""type"": ""Value"",
-                    ""id"": ""6d776173-6306-4be6-8f2e-f7c1f01a4abf"",
+                    ""id"": ""706a55b3-074d-4476-90a0-e01985c46b8d"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -57,17 +66,8 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""GasBreak"",
                     ""type"": ""Value"",
-                    ""id"": ""2078f6cd-6855-4888-96c9-c64421aedd26"",
+                    ""id"": ""24df8ae2-5220-42a1-9567-34cc96e086df"",
                     ""expectedControlType"": ""Axis"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""ControlerCam"",
-                    ""type"": ""Value"",
-                    ""id"": ""bb5bda26-4b9b-4ebf-82d1-d40780d47512"",
-                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -86,41 +86,8 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""2b1a37a4-d57f-4d73-b5b8-8b795fd54d23"",
-                    ""path"": ""<XRHMD>/devicePosition"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""HmdPosition"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""11ad3f9a-ab7c-49a3-ab8c-ce4724f7c79e"",
-                    ""path"": ""<XRController>/thumbstick"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Steer"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""a8f422a6-3cf5-4695-b175-4faa3f82eff5"",
-                    ""path"": ""<Gamepad>/leftStick"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Steer"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""GamePad"",
-                    ""id"": ""d7d077c5-202d-48ee-a6c1-47cd73d8d940"",
+                    ""name"": ""Keyboard"",
+                    ""id"": ""be22fe06-102b-42d4-95ff-0b0efd2f84b3"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -131,7 +98,40 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""negative"",
-                    ""id"": ""9792e0d5-2dfc-4389-8a4f-eb66a5c497b4"",
+                    ""id"": ""f8f8ce62-c569-45b4-aa94-ba7462de679e"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GasBreak"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""8a390f2a-fc6d-4112-b749-d6d2714cfa75"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GasBreak"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""GamePad"",
+                    ""id"": ""37f3a311-db4d-400b-ae7e-049174fc174c"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GasBreak"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""4f409e21-f29c-47c4-be6d-47454b912681"",
                     ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -142,7 +142,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""positive"",
-                    ""id"": ""b4f55ba2-c7db-4a7e-8616-eeacc46844d2"",
+                    ""id"": ""dd71afef-fa02-4607-86ee-ce86f01ae48c"",
                     ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -153,7 +153,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Xr"",
-                    ""id"": ""dd6e827b-9940-47a8-b6ff-2f700ee0cdd0"",
+                    ""id"": ""26971a73-0296-44ba-8ec3-f5a997a6137b"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -164,7 +164,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""negative"",
-                    ""id"": ""1f96bcf0-ce96-462c-b9c6-ec8f73ab6252"",
+                    ""id"": ""903b42e6-9d53-456c-9a47-933e7c396615"",
                     ""path"": ""<XRController>{LeftHand}/trigger"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -175,7 +175,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""positive"",
-                    ""id"": ""d22cabb2-b5f5-4690-b9e1-dedb0e5999d9"",
+                    ""id"": ""63275446-1b47-4384-abaa-c28b40ab76ef"",
                     ""path"": ""<XRController>{RightHand}/trigger"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -186,12 +186,89 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""971e6c18-d08d-467e-ad82-65db7d3c51f1"",
+                    ""id"": ""1b6a788c-0970-41f6-b8e4-fda217a47644"",
+                    ""path"": ""<XRController>/thumbstick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Steer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a849d22f-7bb2-42a2-93fb-bc218d330d80"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Steer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Keyboard"",
+                    ""id"": ""0c057552-ab42-43d3-86a6-7048c02adc9f"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Steer"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Left"",
+                    ""id"": ""ed4d7c7b-0cf5-4f9f-9f16-83daa06ffdb4"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Steer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Right"",
+                    ""id"": ""14b98448-f5e2-4fb5-af57-b26bff265203"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Steer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c01b6fb4-f2cc-4d3b-b656-a56932ef0fd5"",
                     ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""ControlerCam"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""783c7a8e-df43-4caa-a0b1-50ce26253a0c"",
+                    ""path"": ""<XRController>{RightHand}/thumbstick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ControlerCam"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2b1a37a4-d57f-4d73-b5b8-8b795fd54d23"",
+                    ""path"": ""<XRHMD>/devicePosition"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HmdPosition"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -200,18 +277,18 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
     ],
     ""controlSchemes"": []
 }");
-        // Vr
-        m_Vr = asset.FindActionMap("Vr", throwIfNotFound: true);
-        m_Vr_HmdRotation = m_Vr.FindAction("HmdRotation", throwIfNotFound: true);
-        m_Vr_HmdPosition = m_Vr.FindAction("HmdPosition", throwIfNotFound: true);
-        m_Vr_Steer = m_Vr.FindAction("Steer", throwIfNotFound: true);
-        m_Vr_GasBreak = m_Vr.FindAction("GasBreak", throwIfNotFound: true);
-        m_Vr_ControlerCam = m_Vr.FindAction("ControlerCam", throwIfNotFound: true);
+        // Input
+        m_Input = asset.FindActionMap("Input", throwIfNotFound: true);
+        m_Input_HmdRotation = m_Input.FindAction("HmdRotation", throwIfNotFound: true);
+        m_Input_ControlerCam = m_Input.FindAction("ControlerCam", throwIfNotFound: true);
+        m_Input_HmdPosition = m_Input.FindAction("HmdPosition", throwIfNotFound: true);
+        m_Input_Steer = m_Input.FindAction("Steer", throwIfNotFound: true);
+        m_Input_GasBreak = m_Input.FindAction("GasBreak", throwIfNotFound: true);
     }
 
     ~@Inputs()
     {
-        UnityEngine.Debug.Assert(!m_Vr.enabled, "This will cause a leak and performance issues, Inputs.Vr.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_Input.enabled, "This will cause a leak and performance issues, Inputs.Input.Disable() has not been called.");
     }
 
     public void Dispose()
@@ -270,35 +347,38 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // Vr
-    private readonly InputActionMap m_Vr;
-    private List<IVrActions> m_VrActionsCallbackInterfaces = new List<IVrActions>();
-    private readonly InputAction m_Vr_HmdRotation;
-    private readonly InputAction m_Vr_HmdPosition;
-    private readonly InputAction m_Vr_Steer;
-    private readonly InputAction m_Vr_GasBreak;
-    private readonly InputAction m_Vr_ControlerCam;
-    public struct VrActions
+    // Input
+    private readonly InputActionMap m_Input;
+    private List<IInputActions> m_InputActionsCallbackInterfaces = new List<IInputActions>();
+    private readonly InputAction m_Input_HmdRotation;
+    private readonly InputAction m_Input_ControlerCam;
+    private readonly InputAction m_Input_HmdPosition;
+    private readonly InputAction m_Input_Steer;
+    private readonly InputAction m_Input_GasBreak;
+    public struct InputActions
     {
         private @Inputs m_Wrapper;
-        public VrActions(@Inputs wrapper) { m_Wrapper = wrapper; }
-        public InputAction @HmdRotation => m_Wrapper.m_Vr_HmdRotation;
-        public InputAction @HmdPosition => m_Wrapper.m_Vr_HmdPosition;
-        public InputAction @Steer => m_Wrapper.m_Vr_Steer;
-        public InputAction @GasBreak => m_Wrapper.m_Vr_GasBreak;
-        public InputAction @ControlerCam => m_Wrapper.m_Vr_ControlerCam;
-        public InputActionMap Get() { return m_Wrapper.m_Vr; }
+        public InputActions(@Inputs wrapper) { m_Wrapper = wrapper; }
+        public InputAction @HmdRotation => m_Wrapper.m_Input_HmdRotation;
+        public InputAction @ControlerCam => m_Wrapper.m_Input_ControlerCam;
+        public InputAction @HmdPosition => m_Wrapper.m_Input_HmdPosition;
+        public InputAction @Steer => m_Wrapper.m_Input_Steer;
+        public InputAction @GasBreak => m_Wrapper.m_Input_GasBreak;
+        public InputActionMap Get() { return m_Wrapper.m_Input; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(VrActions set) { return set.Get(); }
-        public void AddCallbacks(IVrActions instance)
+        public static implicit operator InputActionMap(InputActions set) { return set.Get(); }
+        public void AddCallbacks(IInputActions instance)
         {
-            if (instance == null || m_Wrapper.m_VrActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_VrActionsCallbackInterfaces.Add(instance);
+            if (instance == null || m_Wrapper.m_InputActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_InputActionsCallbackInterfaces.Add(instance);
             @HmdRotation.started += instance.OnHmdRotation;
             @HmdRotation.performed += instance.OnHmdRotation;
             @HmdRotation.canceled += instance.OnHmdRotation;
+            @ControlerCam.started += instance.OnControlerCam;
+            @ControlerCam.performed += instance.OnControlerCam;
+            @ControlerCam.canceled += instance.OnControlerCam;
             @HmdPosition.started += instance.OnHmdPosition;
             @HmdPosition.performed += instance.OnHmdPosition;
             @HmdPosition.canceled += instance.OnHmdPosition;
@@ -308,16 +388,16 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
             @GasBreak.started += instance.OnGasBreak;
             @GasBreak.performed += instance.OnGasBreak;
             @GasBreak.canceled += instance.OnGasBreak;
-            @ControlerCam.started += instance.OnControlerCam;
-            @ControlerCam.performed += instance.OnControlerCam;
-            @ControlerCam.canceled += instance.OnControlerCam;
         }
 
-        private void UnregisterCallbacks(IVrActions instance)
+        private void UnregisterCallbacks(IInputActions instance)
         {
             @HmdRotation.started -= instance.OnHmdRotation;
             @HmdRotation.performed -= instance.OnHmdRotation;
             @HmdRotation.canceled -= instance.OnHmdRotation;
+            @ControlerCam.started -= instance.OnControlerCam;
+            @ControlerCam.performed -= instance.OnControlerCam;
+            @ControlerCam.canceled -= instance.OnControlerCam;
             @HmdPosition.started -= instance.OnHmdPosition;
             @HmdPosition.performed -= instance.OnHmdPosition;
             @HmdPosition.canceled -= instance.OnHmdPosition;
@@ -332,24 +412,25 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
             @ControlerCam.canceled -= instance.OnControlerCam;
         }
 
-        public void RemoveCallbacks(IVrActions instance)
+        public void RemoveCallbacks(IInputActions instance)
         {
-            if (m_Wrapper.m_VrActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_InputActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(IVrActions instance)
+        public void SetCallbacks(IInputActions instance)
         {
-            foreach (var item in m_Wrapper.m_VrActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_InputActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_VrActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_InputActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public VrActions @Vr => new VrActions(this);
-    public interface IVrActions
+    public InputActions @Input => new InputActions(this);
+    public interface IInputActions
     {
         void OnHmdRotation(InputAction.CallbackContext context);
+        void OnControlerCam(InputAction.CallbackContext context);
         void OnHmdPosition(InputAction.CallbackContext context);
         void OnSteer(InputAction.CallbackContext context);
         void OnGasBreak(InputAction.CallbackContext context);

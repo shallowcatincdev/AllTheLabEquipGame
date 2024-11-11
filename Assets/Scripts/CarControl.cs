@@ -41,11 +41,7 @@ public class CarControl : MonoBehaviour
     void Update()
     {
 
-
-
-
         float forwardSpeed = Vector3.Dot(transform.forward, rigidBody.velocity);
-
 
         float speedFactor = Mathf.InverseLerp(0, maxSpeed, forwardSpeed);
 
