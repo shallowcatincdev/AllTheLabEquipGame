@@ -105,7 +105,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                     ""groups"": """",
                     ""action"": ""GasBreak"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": true
+                    ""isPartOfComposite"": false
                 },
                 {
                     ""name"": ""positive"",
@@ -407,6 +407,9 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
             @GasBreak.started -= instance.OnGasBreak;
             @GasBreak.performed -= instance.OnGasBreak;
             @GasBreak.canceled -= instance.OnGasBreak;
+            @ControlerCam.started -= instance.OnControlerCam;
+            @ControlerCam.performed -= instance.OnControlerCam;
+            @ControlerCam.canceled -= instance.OnControlerCam;
         }
 
         public void RemoveCallbacks(IInputActions instance)
@@ -431,5 +434,6 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         void OnHmdPosition(InputAction.CallbackContext context);
         void OnSteer(InputAction.CallbackContext context);
         void OnGasBreak(InputAction.CallbackContext context);
+        void OnControlerCam(InputAction.CallbackContext context);
     }
 }

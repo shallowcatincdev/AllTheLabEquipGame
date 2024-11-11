@@ -83,7 +83,7 @@
                     "groups": "",
                     "action": "GasBreak",
                     "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
                 },
                 {
                     "name": "positive",
@@ -227,6 +227,7 @@
                     "action": "ControlerCam",
                     "isComposite": false,
                     "isPartOfComposite": false
+
                 },
                 {
                     "name": "",
