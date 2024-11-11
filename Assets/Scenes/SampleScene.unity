@@ -133,8 +133,6 @@ GameObject:
   - component: {fileID: 16812164}
   - component: {fileID: 16812163}
   - component: {fileID: 16812162}
-  - component: {fileID: 16812166}
-  - component: {fileID: 16812165}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -183,7 +181,7 @@ MonoBehaviour:
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Movement
+  m_DefaultActionMap: Vr
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 963194227}
 --- !u!4 &16812164
@@ -203,35 +201,6 @@ Transform:
   - {fileID: 2088776946}
   m_Father: {fileID: 1792637907}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &16812165
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 16812161}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8b2f3e3c3d5f574c809f444cbc19558, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _actionAsset: {fileID: -944628639613478452, guid: 97eb324b5420c6f4eb0f69b5a7d91cf4, type: 3}
-  vrMode: 0
-  vrModeLock: 0
---- !u!114 &16812166
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 16812161}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3be127c52c8e6744097133ef7fdb823e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cam: {fileID: 963194227}
-  camOrgin: {fileID: 2088776946}
 --- !u!1 &26373631
 GameObject:
   m_ObjectHideFlags: 0
@@ -1362,7 +1331,7 @@ MonoBehaviour:
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: 96b72dca-cd4b-4240-9481-d5ba5eec7cbb
+  m_DefaultActionMap: Vr
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 963194227}
 --- !u!1 &2066912502
