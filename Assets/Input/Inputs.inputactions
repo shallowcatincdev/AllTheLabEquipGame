@@ -24,9 +24,18 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "ControlerCam",
+                    "type": "Value",
+                    "id": "dce74e91-a2f2-41f7-8ffd-1696378a2add",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
                     "name": "Steer",
                     "type": "Value",
-                    "id": "6d776173-6306-4be6-8f2e-f7c1f01a4abf",
+                    "id": "706a55b3-074d-4476-90a0-e01985c46b8d",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -35,7 +44,7 @@
                 {
                     "name": "GasBreak",
                     "type": "Value",
-                    "id": "2078f6cd-6855-4888-96c9-c64421aedd26",
+                    "id": "24df8ae2-5220-42a1-9567-34cc96e086df",
                     "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
@@ -55,41 +64,8 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "2b1a37a4-d57f-4d73-b5b8-8b795fd54d23",
-                    "path": "<XRHMD>/devicePosition",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "HmdPosition",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "11ad3f9a-ab7c-49a3-ab8c-ce4724f7c79e",
-                    "path": "<XRController>/thumbstick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Steer",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a8f422a6-3cf5-4695-b175-4faa3f82eff5",
-                    "path": "<Gamepad>/leftStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Steer",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
                     "name": "GamePad",
-                    "id": "d7d077c5-202d-48ee-a6c1-47cd73d8d940",
+                    "id": "37f3a311-db4d-400b-ae7e-049174fc174c",
                     "path": "1DAxis",
                     "interactions": "",
                     "processors": "",
@@ -100,7 +76,7 @@
                 },
                 {
                     "name": "negative",
-                    "id": "9792e0d5-2dfc-4389-8a4f-eb66a5c497b4",
+                    "id": "4f409e21-f29c-47c4-be6d-47454b912681",
                     "path": "<Gamepad>/leftTrigger",
                     "interactions": "",
                     "processors": "",
@@ -111,7 +87,7 @@
                 },
                 {
                     "name": "positive",
-                    "id": "b4f55ba2-c7db-4a7e-8616-eeacc46844d2",
+                    "id": "dd71afef-fa02-4607-86ee-ce86f01ae48c",
                     "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
@@ -122,7 +98,7 @@
                 },
                 {
                     "name": "Xr",
-                    "id": "dd6e827b-9940-47a8-b6ff-2f700ee0cdd0",
+                    "id": "26971a73-0296-44ba-8ec3-f5a997a6137b",
                     "path": "1DAxis",
                     "interactions": "",
                     "processors": "",
@@ -133,7 +109,7 @@
                 },
                 {
                     "name": "negative",
-                    "id": "1f96bcf0-ce96-462c-b9c6-ec8f73ab6252",
+                    "id": "903b42e6-9d53-456c-9a47-933e7c396615",
                     "path": "<XRController>{LeftHand}/trigger",
                     "interactions": "",
                     "processors": "",
@@ -144,7 +120,7 @@
                 },
                 {
                     "name": "positive",
-                    "id": "d22cabb2-b5f5-4690-b9e1-dedb0e5999d9",
+                    "id": "63275446-1b47-4384-abaa-c28b40ab76ef",
                     "path": "<XRController>{RightHand}/trigger",
                     "interactions": "",
                     "processors": "",
@@ -152,6 +128,94 @@
                     "action": "GasBreak",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "1b6a788c-0970-41f6-b8e4-fda217a47644",
+                    "path": "<XRController>/thumbstick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Steer",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a849d22f-7bb2-42a2-93fb-bc218d330d80",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Steer",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Keyboard",
+                    "id": "0c057552-ab42-43d3-86a6-7048c02adc9f",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Steer",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Left",
+                    "id": "ed4d7c7b-0cf5-4f9f-9f16-83daa06ffdb4",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Steer",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Right",
+                    "id": "14b98448-f5e2-4fb5-af57-b26bff265203",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Steer",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "c01b6fb4-f2cc-4d3b-b656-a56932ef0fd5",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ControlerCam",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "783c7a8e-df43-4caa-a0b1-50ce26253a0c",
+                    "path": "<XRController>{RightHand}/thumbstick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ControlerCam",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2b1a37a4-d57f-4d73-b5b8-8b795fd54d23",
+                    "path": "<XRHMD>/devicePosition",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HmdPosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
