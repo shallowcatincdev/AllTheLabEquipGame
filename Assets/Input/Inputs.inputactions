@@ -2,7 +2,7 @@
     "name": "Inputs",
     "maps": [
         {
-            "name": "Input",
+            "name": "Vr",
             "id": "0a7da3a5-8a16-41c7-b335-4c2132a60a16",
             "actions": [
                 {
@@ -15,19 +15,19 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "ControlerCam",
+                    "name": "HmdPosition",
                     "type": "Value",
-                    "id": "dce74e91-a2f2-41f7-8ffd-1696378a2add",
-                    "expectedControlType": "Vector2",
+                    "id": "cd955865-6e77-4400-b4ad-2cd5a03fd450",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
                 },
                 {
-                    "name": "HmdPosition",
+                    "name": "ControlerCam",
                     "type": "Value",
-                    "id": "cd955865-6e77-4400-b4ad-2cd5a03fd450",
-                    "expectedControlType": "",
+                    "id": "dce74e91-a2f2-41f7-8ffd-1696378a2add",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -62,39 +62,6 @@
                     "action": "HmdRotation",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "Keyboard",
-                    "id": "be22fe06-102b-42d4-95ff-0b0efd2f84b3",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "GasBreak",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "f8f8ce62-c569-45b4-aa94-ba7462de679e",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "GasBreak",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "positive",
-                    "id": "8a390f2a-fc6d-4112-b749-d6d2714cfa75",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "GasBreak",
-                    "isComposite": false,
-                    "isPartOfComposite": true
                 },
                 {
                     "name": "GamePad",
@@ -227,7 +194,6 @@
                     "action": "ControlerCam",
                     "isComposite": false,
                     "isPartOfComposite": false
-
                 },
                 {
                     "name": "",
