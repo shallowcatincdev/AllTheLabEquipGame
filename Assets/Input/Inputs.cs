@@ -309,9 +309,49 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 }
             ]
+        },
+        {
+            ""name"": ""Menu Controls"",
+            ""id"": ""c306f703-f711-4e29-b65e-d491fb8c86f4"",
+            ""actions"": [
+                {
+                    ""name"": ""MenuOpenClose"",
+                    ""type"": ""Button"",
+                    ""id"": ""4460ede4-2709-42a9-a32e-bf097584ec52"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""bdda8677-1ea3-4a1e-ba2a-1b722ce75426"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""MenuOpenClose"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
-    ""controlSchemes"": []
+    ""controlSchemes"": [
+        {
+            ""name"": ""Gamepad"",
+            ""bindingGroup"": ""Gamepad"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Gamepad>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
+        }
+    ]
 }");
         // Vr
         m_Vr = asset.FindActionMap("Vr", throwIfNotFound: true);
@@ -325,6 +365,9 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         m_Movement = asset.FindActionMap("Movement", throwIfNotFound: true);
         m_Movement_Steer = m_Movement.FindAction("Steer", throwIfNotFound: true);
         m_Movement_GasBreak = m_Movement.FindAction("GasBreak", throwIfNotFound: true);
+        // Menu Controls
+        m_MenuControls = asset.FindActionMap("Menu Controls", throwIfNotFound: true);
+        m_MenuControls_MenuOpenClose = m_MenuControls.FindAction("MenuOpenClose", throwIfNotFound: true);
     }
 
     ~@Inputs()
@@ -332,6 +375,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         UnityEngine.Debug.Assert(!m_Vr.enabled, "This will cause a leak and performance issues, Inputs.Vr.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_NotVr.enabled, "This will cause a leak and performance issues, Inputs.NotVr.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_Movement.enabled, "This will cause a leak and performance issues, Inputs.Movement.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_MenuControls.enabled, "This will cause a leak and performance issues, Inputs.MenuControls.Disable() has not been called.");
     }
 
     public void Dispose()
@@ -551,6 +595,61 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         }
     }
     public MovementActions @Movement => new MovementActions(this);
+
+    // Menu Controls
+    private readonly InputActionMap m_MenuControls;
+    private List<IMenuControlsActions> m_MenuControlsActionsCallbackInterfaces = new List<IMenuControlsActions>();
+    private readonly InputAction m_MenuControls_MenuOpenClose;
+    public struct MenuControlsActions
+    {
+        private @Inputs m_Wrapper;
+        public MenuControlsActions(@Inputs wrapper) { m_Wrapper = wrapper; }
+        public InputAction @MenuOpenClose => m_Wrapper.m_MenuControls_MenuOpenClose;
+        public InputActionMap Get() { return m_Wrapper.m_MenuControls; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MenuControlsActions set) { return set.Get(); }
+        public void AddCallbacks(IMenuControlsActions instance)
+        {
+            if (instance == null || m_Wrapper.m_MenuControlsActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_MenuControlsActionsCallbackInterfaces.Add(instance);
+            @MenuOpenClose.started += instance.OnMenuOpenClose;
+            @MenuOpenClose.performed += instance.OnMenuOpenClose;
+            @MenuOpenClose.canceled += instance.OnMenuOpenClose;
+        }
+
+        private void UnregisterCallbacks(IMenuControlsActions instance)
+        {
+            @MenuOpenClose.started -= instance.OnMenuOpenClose;
+            @MenuOpenClose.performed -= instance.OnMenuOpenClose;
+            @MenuOpenClose.canceled -= instance.OnMenuOpenClose;
+        }
+
+        public void RemoveCallbacks(IMenuControlsActions instance)
+        {
+            if (m_Wrapper.m_MenuControlsActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IMenuControlsActions instance)
+        {
+            foreach (var item in m_Wrapper.m_MenuControlsActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_MenuControlsActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public MenuControlsActions @MenuControls => new MenuControlsActions(this);
+    private int m_GamepadSchemeIndex = -1;
+    public InputControlScheme GamepadScheme
+    {
+        get
+        {
+            if (m_GamepadSchemeIndex == -1) m_GamepadSchemeIndex = asset.FindControlSchemeIndex("Gamepad");
+            return asset.controlSchemes[m_GamepadSchemeIndex];
+        }
+    }
     public interface IVrActions
     {
         void OnHmdRotation(InputAction.CallbackContext context);
@@ -565,5 +664,9 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
     {
         void OnSteer(InputAction.CallbackContext context);
         void OnGasBreak(InputAction.CallbackContext context);
+    }
+    public interface IMenuControlsActions
+    {
+        void OnMenuOpenClose(InputAction.CallbackContext context);
     }
 }
