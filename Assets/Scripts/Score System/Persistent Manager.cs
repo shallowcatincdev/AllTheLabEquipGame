@@ -28,9 +28,4 @@ public class PersistentManager : MonoBehaviour
 
     }//end start
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }//end update
 }//end class
