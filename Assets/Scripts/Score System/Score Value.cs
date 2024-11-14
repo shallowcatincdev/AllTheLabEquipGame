@@ -68,4 +68,10 @@ public class ScoreValue : MonoBehaviour
 
     }//end start
 
-}//end class
+    // Update is called once per frame
+    void Update()
+    {
+        
+
+    }//end update
+}
