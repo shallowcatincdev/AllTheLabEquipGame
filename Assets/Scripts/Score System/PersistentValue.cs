@@ -12,9 +12,9 @@ public class PersistentValue : MonoBehaviour
     public ScoreValue ScoreValue;
 
     //values for debugging.log ONCE
-    public bool scoreValueTxt;
-    public bool scoreTxt;
-    public bool gameObjectTxt;
+    private bool scoreValueTxt;
+    private bool scoreTxt;
+    private bool gameObjectTxt;
 
     // Start is called before the first frame update
     void Start()
