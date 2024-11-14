@@ -5,6 +5,8 @@ using UnityEngine;
 public class ScoreValue : MonoBehaviour
 {
     public float score;
+    public GameObject persistentObject;
+    public PersistentValue persistentValue;
 
     /*
     //used for testing the methods
@@ -22,7 +24,7 @@ public class ScoreValue : MonoBehaviour
     }//end method
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         /*
         //for testing methods
@@ -30,11 +32,46 @@ public class ScoreValue : MonoBehaviour
         RemoveScore(minus);
         */
 
+        try
+        {
+            persistentObject = GameObject.FindGameObjectWithTag("Persistent Value");
+            Debug.Log("persistent object found");
+        }//end try
+        catch
+        {
+            Debug.Log("persistent object not found");
+        }//end catch
+
+        //if persistent object = true (if there IS a persistent object present)
+        if (persistentObject)
+        {
+            //pulls ScoreValue script from gameobject
+            persistentValue = persistentObject.GetComponent<PersistentValue>();
+            Debug.Log("found persistent object code");
+        }//end if
+        else
+        {
+            Debug.Log("persistent object code not found");
+        }//end else
+
+        try
+        {
+            score = persistentValue.score;
+            Debug.Log("found persistent score");
+        }//end try
+
+        catch
+        {
+            Debug.Log("persistent score not found");
+        }//end catch
+
+
     }//end start
 
     // Update is called once per frame
     void Update()
     {
         
+
     }//end update
 }
