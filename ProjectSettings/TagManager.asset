@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Despawn
   - Traffic
+  - Score
+  - Persistent Value
   layers:
   - Default
   - TransparentFX

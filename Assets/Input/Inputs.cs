@@ -24,7 +24,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
     ""name"": ""Inputs"",
     ""maps"": [
         {
-            ""name"": ""Input"",
+            ""name"": ""Vr"",
             ""id"": ""0a7da3a5-8a16-41c7-b335-4c2132a60a16"",
             ""actions"": [
                 {
@@ -37,19 +37,19 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""ControlerCam"",
+                    ""name"": ""HmdPosition"",
                     ""type"": ""Value"",
-                    ""id"": ""dce74e91-a2f2-41f7-8ffd-1696378a2add"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""id"": ""cd955865-6e77-4400-b4ad-2cd5a03fd450"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""HmdPosition"",
+                    ""name"": ""ControlerCam"",
                     ""type"": ""Value"",
-                    ""id"": ""cd955865-6e77-4400-b4ad-2cd5a03fd450"",
-                    ""expectedControlType"": """",
+                    ""id"": ""dce74e91-a2f2-41f7-8ffd-1696378a2add"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -84,39 +84,6 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                     ""action"": ""HmdRotation"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""Keyboard"",
-                    ""id"": ""be22fe06-102b-42d4-95ff-0b0efd2f84b3"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""GasBreak"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""f8f8ce62-c569-45b4-aa94-ba7462de679e"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""GasBreak"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""8a390f2a-fc6d-4112-b749-d6d2714cfa75"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""GasBreak"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""GamePad"",
@@ -277,18 +244,18 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
     ],
     ""controlSchemes"": []
 }");
-        // Input
-        m_Input = asset.FindActionMap("Input", throwIfNotFound: true);
-        m_Input_HmdRotation = m_Input.FindAction("HmdRotation", throwIfNotFound: true);
-        m_Input_ControlerCam = m_Input.FindAction("ControlerCam", throwIfNotFound: true);
-        m_Input_HmdPosition = m_Input.FindAction("HmdPosition", throwIfNotFound: true);
-        m_Input_Steer = m_Input.FindAction("Steer", throwIfNotFound: true);
-        m_Input_GasBreak = m_Input.FindAction("GasBreak", throwIfNotFound: true);
+        // Vr
+        m_Vr = asset.FindActionMap("Vr", throwIfNotFound: true);
+        m_Vr_HmdRotation = m_Vr.FindAction("HmdRotation", throwIfNotFound: true);
+        m_Vr_HmdPosition = m_Vr.FindAction("HmdPosition", throwIfNotFound: true);
+        m_Vr_ControlerCam = m_Vr.FindAction("ControlerCam", throwIfNotFound: true);
+        m_Vr_Steer = m_Vr.FindAction("Steer", throwIfNotFound: true);
+        m_Vr_GasBreak = m_Vr.FindAction("GasBreak", throwIfNotFound: true);
     }
 
     ~@Inputs()
     {
-        UnityEngine.Debug.Assert(!m_Input.enabled, "This will cause a leak and performance issues, Inputs.Input.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_Vr.enabled, "This will cause a leak and performance issues, Inputs.Vr.Disable() has not been called.");
     }
 
     public void Dispose()
@@ -347,41 +314,41 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // Input
-    private readonly InputActionMap m_Input;
-    private List<IInputActions> m_InputActionsCallbackInterfaces = new List<IInputActions>();
-    private readonly InputAction m_Input_HmdRotation;
-    private readonly InputAction m_Input_ControlerCam;
-    private readonly InputAction m_Input_HmdPosition;
-    private readonly InputAction m_Input_Steer;
-    private readonly InputAction m_Input_GasBreak;
-    public struct InputActions
+    // Vr
+    private readonly InputActionMap m_Vr;
+    private List<IVrActions> m_VrActionsCallbackInterfaces = new List<IVrActions>();
+    private readonly InputAction m_Vr_HmdRotation;
+    private readonly InputAction m_Vr_HmdPosition;
+    private readonly InputAction m_Vr_ControlerCam;
+    private readonly InputAction m_Vr_Steer;
+    private readonly InputAction m_Vr_GasBreak;
+    public struct VrActions
     {
         private @Inputs m_Wrapper;
-        public InputActions(@Inputs wrapper) { m_Wrapper = wrapper; }
-        public InputAction @HmdRotation => m_Wrapper.m_Input_HmdRotation;
-        public InputAction @ControlerCam => m_Wrapper.m_Input_ControlerCam;
-        public InputAction @HmdPosition => m_Wrapper.m_Input_HmdPosition;
-        public InputAction @Steer => m_Wrapper.m_Input_Steer;
-        public InputAction @GasBreak => m_Wrapper.m_Input_GasBreak;
-        public InputActionMap Get() { return m_Wrapper.m_Input; }
+        public VrActions(@Inputs wrapper) { m_Wrapper = wrapper; }
+        public InputAction @HmdRotation => m_Wrapper.m_Vr_HmdRotation;
+        public InputAction @HmdPosition => m_Wrapper.m_Vr_HmdPosition;
+        public InputAction @ControlerCam => m_Wrapper.m_Vr_ControlerCam;
+        public InputAction @Steer => m_Wrapper.m_Vr_Steer;
+        public InputAction @GasBreak => m_Wrapper.m_Vr_GasBreak;
+        public InputActionMap Get() { return m_Wrapper.m_Vr; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(InputActions set) { return set.Get(); }
-        public void AddCallbacks(IInputActions instance)
+        public static implicit operator InputActionMap(VrActions set) { return set.Get(); }
+        public void AddCallbacks(IVrActions instance)
         {
-            if (instance == null || m_Wrapper.m_InputActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_InputActionsCallbackInterfaces.Add(instance);
+            if (instance == null || m_Wrapper.m_VrActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_VrActionsCallbackInterfaces.Add(instance);
             @HmdRotation.started += instance.OnHmdRotation;
             @HmdRotation.performed += instance.OnHmdRotation;
             @HmdRotation.canceled += instance.OnHmdRotation;
-            @ControlerCam.started += instance.OnControlerCam;
-            @ControlerCam.performed += instance.OnControlerCam;
-            @ControlerCam.canceled += instance.OnControlerCam;
             @HmdPosition.started += instance.OnHmdPosition;
             @HmdPosition.performed += instance.OnHmdPosition;
             @HmdPosition.canceled += instance.OnHmdPosition;
+            @ControlerCam.started += instance.OnControlerCam;
+            @ControlerCam.performed += instance.OnControlerCam;
+            @ControlerCam.canceled += instance.OnControlerCam;
             @Steer.started += instance.OnSteer;
             @Steer.performed += instance.OnSteer;
             @Steer.canceled += instance.OnSteer;
@@ -390,17 +357,17 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
             @GasBreak.canceled += instance.OnGasBreak;
         }
 
-        private void UnregisterCallbacks(IInputActions instance)
+        private void UnregisterCallbacks(IVrActions instance)
         {
             @HmdRotation.started -= instance.OnHmdRotation;
             @HmdRotation.performed -= instance.OnHmdRotation;
             @HmdRotation.canceled -= instance.OnHmdRotation;
-            @ControlerCam.started -= instance.OnControlerCam;
-            @ControlerCam.performed -= instance.OnControlerCam;
-            @ControlerCam.canceled -= instance.OnControlerCam;
             @HmdPosition.started -= instance.OnHmdPosition;
             @HmdPosition.performed -= instance.OnHmdPosition;
             @HmdPosition.canceled -= instance.OnHmdPosition;
+            @ControlerCam.started -= instance.OnControlerCam;
+            @ControlerCam.performed -= instance.OnControlerCam;
+            @ControlerCam.canceled -= instance.OnControlerCam;
             @Steer.started -= instance.OnSteer;
             @Steer.performed -= instance.OnSteer;
             @Steer.canceled -= instance.OnSteer;
@@ -409,26 +376,26 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
             @GasBreak.canceled -= instance.OnGasBreak;
         }
 
-        public void RemoveCallbacks(IInputActions instance)
+        public void RemoveCallbacks(IVrActions instance)
         {
-            if (m_Wrapper.m_InputActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_VrActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(IInputActions instance)
+        public void SetCallbacks(IVrActions instance)
         {
-            foreach (var item in m_Wrapper.m_InputActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_VrActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_InputActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_VrActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public InputActions @Input => new InputActions(this);
-    public interface IInputActions
+    public VrActions @Vr => new VrActions(this);
+    public interface IVrActions
     {
         void OnHmdRotation(InputAction.CallbackContext context);
-        void OnControlerCam(InputAction.CallbackContext context);
         void OnHmdPosition(InputAction.CallbackContext context);
+        void OnControlerCam(InputAction.CallbackContext context);
         void OnSteer(InputAction.CallbackContext context);
         void OnGasBreak(InputAction.CallbackContext context);
     }
