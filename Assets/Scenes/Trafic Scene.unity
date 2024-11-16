@@ -2247,6 +2247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc1258ca3c7f3344eac40fb3f9e8dda4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wheel: {fileID: 0}
   motorTorque: 2000
   brakeTorque: 2000
   maxSpeed: 20
@@ -2508,6 +2509,63 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2141062435}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &8346291245438831604
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4250052890966365431, guid: ba9e162cf9406ea4a8e2bad36b08c7a5, type: 3}
+      propertyPath: m_Name
+      value: 1995 civic si Coupe
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102214040678342053, guid: ba9e162cf9406ea4a8e2bad36b08c7a5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 14.473167
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102214040678342053, guid: ba9e162cf9406ea4a8e2bad36b08c7a5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102214040678342053, guid: ba9e162cf9406ea4a8e2bad36b08c7a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.3419404
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102214040678342053, guid: ba9e162cf9406ea4a8e2bad36b08c7a5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102214040678342053, guid: ba9e162cf9406ea4a8e2bad36b08c7a5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102214040678342053, guid: ba9e162cf9406ea4a8e2bad36b08c7a5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102214040678342053, guid: ba9e162cf9406ea4a8e2bad36b08c7a5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102214040678342053, guid: ba9e162cf9406ea4a8e2bad36b08c7a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102214040678342053, guid: ba9e162cf9406ea4a8e2bad36b08c7a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102214040678342053, guid: ba9e162cf9406ea4a8e2bad36b08c7a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ba9e162cf9406ea4a8e2bad36b08c7a5, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2516,3 +2574,4 @@ SceneRoots:
   - {fileID: 442265894}
   - {fileID: 1049628109}
   - {fileID: 1738179983}
+  - {fileID: 8346291245438831604}
