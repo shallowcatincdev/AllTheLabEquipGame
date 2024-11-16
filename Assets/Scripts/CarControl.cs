@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class CarControl : MonoBehaviour
 {
+    [SerializeField] GameObject wheel;
+
     public float motorTorque = 2000;
     public float brakeTorque = 2000;
     public float maxSpeed = 20;
@@ -40,12 +42,10 @@ public class CarControl : MonoBehaviour
 
     void Update()
     {
-
-
+        wheel.transform.rotation = Quaternion.Euler(0, 0, moveDirec.x * -180);
 
 
         float forwardSpeed = Vector3.Dot(transform.forward, rigidBody.velocity);
-
 
         float speedFactor = Mathf.InverseLerp(0, maxSpeed, forwardSpeed);
 
