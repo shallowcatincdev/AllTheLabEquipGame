@@ -11,10 +11,16 @@ public class CarCollision : MonoBehaviour
         
         if (collision.gameObject.tag == "Traffic")
         {
+            try
+            {
                 Debug.Log("Collision");
                 score += 100;
-                GameObject.FindGameObjectWithTag("GameManager").GetComponent<PersistentValue>().score += 5;
-      
+                GameObject.FindGameObjectWithTag("GameManager").GetComponent<PersistentValue>().score = score;
+            }
+            catch
+            {
+
+            }
         }
     }
 }
