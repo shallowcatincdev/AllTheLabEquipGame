@@ -710,6 +710,7 @@ GameObject:
   m_Component:
   - component: {fileID: 442265894}
   - component: {fileID: 442265895}
+  - component: {fileID: 442265896}
   m_Layer: 0
   m_Name: Car Stuff
   m_TagString: Untagged
@@ -746,6 +747,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8406f5980d887da4486c5dfd61a315c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: 0
+--- !u!65 &442265896
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442265893}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10, y: 2, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &519704812
 GameObject:
   m_ObjectHideFlags: 0
@@ -2178,7 +2201,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2190710987078021096, guid: b5b5ed968c671684a97ed6507a9feed7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.72
+      value: 7.1
       objectReference: {fileID: 0}
     - target: {fileID: 2190710987078021096, guid: b5b5ed968c671684a97ed6507a9feed7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2215,6 +2238,18 @@ PrefabInstance:
     - target: {fileID: 2190710987078021096, guid: b5b5ed968c671684a97ed6507a9feed7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3054567516646333532, guid: b5b5ed968c671684a97ed6507a9feed7, type: 3}
+      propertyPath: m_Size.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3054567516646333532, guid: b5b5ed968c671684a97ed6507a9feed7, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3054567516646333532, guid: b5b5ed968c671684a97ed6507a9feed7, type: 3}
+      propertyPath: m_Size.z
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6972552578144045222, guid: b5b5ed968c671684a97ed6507a9feed7, type: 3}
       propertyPath: m_Name
