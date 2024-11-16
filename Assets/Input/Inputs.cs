@@ -37,6 +37,15 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
+                    ""name"": ""MenuOpenClose"",
+                    ""type"": ""Button"",
+                    ""id"": ""19d37a7e-b6af-4ed4-99aa-ebc5e6df222b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""HmdPosition"",
                     ""type"": ""Value"",
                     ""id"": ""cd955865-6e77-4400-b4ad-2cd5a03fd450"",
@@ -82,6 +91,28 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""HmdRotation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e35a370f-2177-4308-a480-bf8bd76f9442"",
+                    ""path"": ""<XRController>{RightHand}/{PrimaryAction}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MenuOpenClose"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2f0ce1f8-5ea9-45b5-8c49-2bb58059d2e7"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""MenuOpenClose"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -240,34 +271,6 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
-        },
-        {
-            ""name"": ""Menu Controls"",
-            ""id"": ""c306f703-f711-4e29-b65e-d491fb8c86f4"",
-            ""actions"": [
-                {
-                    ""name"": ""MenuOpenClose"",
-                    ""type"": ""Button"",
-                    ""id"": ""4460ede4-2709-42a9-a32e-bf097584ec52"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                }
-            ],
-            ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""bdda8677-1ea3-4a1e-ba2a-1b722ce75426"",
-                    ""path"": ""<Gamepad>/start"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Gamepad"",
-                    ""action"": ""MenuOpenClose"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                }
-            ]
         }
     ],
     ""controlSchemes"": [
@@ -287,19 +290,16 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         // Vr
         m_Vr = asset.FindActionMap("Vr", throwIfNotFound: true);
         m_Vr_HmdRotation = m_Vr.FindAction("HmdRotation", throwIfNotFound: true);
+        m_Vr_MenuOpenClose = m_Vr.FindAction("MenuOpenClose", throwIfNotFound: true);
         m_Vr_HmdPosition = m_Vr.FindAction("HmdPosition", throwIfNotFound: true);
         m_Vr_ControlerCam = m_Vr.FindAction("ControlerCam", throwIfNotFound: true);
         m_Vr_Steer = m_Vr.FindAction("Steer", throwIfNotFound: true);
         m_Vr_GasBreak = m_Vr.FindAction("GasBreak", throwIfNotFound: true);
-        // Menu Controls
-        m_MenuControls = asset.FindActionMap("Menu Controls", throwIfNotFound: true);
-        m_MenuControls_MenuOpenClose = m_MenuControls.FindAction("MenuOpenClose", throwIfNotFound: true);
     }
 
     ~@Inputs()
     {
         UnityEngine.Debug.Assert(!m_Vr.enabled, "This will cause a leak and performance issues, Inputs.Vr.Disable() has not been called.");
-        UnityEngine.Debug.Assert(!m_MenuControls.enabled, "This will cause a leak and performance issues, Inputs.MenuControls.Disable() has not been called.");
     }
 
     public void Dispose()
@@ -362,6 +362,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Vr;
     private List<IVrActions> m_VrActionsCallbackInterfaces = new List<IVrActions>();
     private readonly InputAction m_Vr_HmdRotation;
+    private readonly InputAction m_Vr_MenuOpenClose;
     private readonly InputAction m_Vr_HmdPosition;
     private readonly InputAction m_Vr_ControlerCam;
     private readonly InputAction m_Vr_Steer;
@@ -371,6 +372,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         private @Inputs m_Wrapper;
         public VrActions(@Inputs wrapper) { m_Wrapper = wrapper; }
         public InputAction @HmdRotation => m_Wrapper.m_Vr_HmdRotation;
+        public InputAction @MenuOpenClose => m_Wrapper.m_Vr_MenuOpenClose;
         public InputAction @HmdPosition => m_Wrapper.m_Vr_HmdPosition;
         public InputAction @ControlerCam => m_Wrapper.m_Vr_ControlerCam;
         public InputAction @Steer => m_Wrapper.m_Vr_Steer;
@@ -387,6 +389,9 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
             @HmdRotation.started += instance.OnHmdRotation;
             @HmdRotation.performed += instance.OnHmdRotation;
             @HmdRotation.canceled += instance.OnHmdRotation;
+            @MenuOpenClose.started += instance.OnMenuOpenClose;
+            @MenuOpenClose.performed += instance.OnMenuOpenClose;
+            @MenuOpenClose.canceled += instance.OnMenuOpenClose;
             @HmdPosition.started += instance.OnHmdPosition;
             @HmdPosition.performed += instance.OnHmdPosition;
             @HmdPosition.canceled += instance.OnHmdPosition;
@@ -406,6 +411,9 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
             @HmdRotation.started -= instance.OnHmdRotation;
             @HmdRotation.performed -= instance.OnHmdRotation;
             @HmdRotation.canceled -= instance.OnHmdRotation;
+            @MenuOpenClose.started -= instance.OnMenuOpenClose;
+            @MenuOpenClose.performed -= instance.OnMenuOpenClose;
+            @MenuOpenClose.canceled -= instance.OnMenuOpenClose;
             @HmdPosition.started -= instance.OnHmdPosition;
             @HmdPosition.performed -= instance.OnHmdPosition;
             @HmdPosition.canceled -= instance.OnHmdPosition;
@@ -435,52 +443,6 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         }
     }
     public VrActions @Vr => new VrActions(this);
-
-    // Menu Controls
-    private readonly InputActionMap m_MenuControls;
-    private List<IMenuControlsActions> m_MenuControlsActionsCallbackInterfaces = new List<IMenuControlsActions>();
-    private readonly InputAction m_MenuControls_MenuOpenClose;
-    public struct MenuControlsActions
-    {
-        private @Inputs m_Wrapper;
-        public MenuControlsActions(@Inputs wrapper) { m_Wrapper = wrapper; }
-        public InputAction @MenuOpenClose => m_Wrapper.m_MenuControls_MenuOpenClose;
-        public InputActionMap Get() { return m_Wrapper.m_MenuControls; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(MenuControlsActions set) { return set.Get(); }
-        public void AddCallbacks(IMenuControlsActions instance)
-        {
-            if (instance == null || m_Wrapper.m_MenuControlsActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_MenuControlsActionsCallbackInterfaces.Add(instance);
-            @MenuOpenClose.started += instance.OnMenuOpenClose;
-            @MenuOpenClose.performed += instance.OnMenuOpenClose;
-            @MenuOpenClose.canceled += instance.OnMenuOpenClose;
-        }
-
-        private void UnregisterCallbacks(IMenuControlsActions instance)
-        {
-            @MenuOpenClose.started -= instance.OnMenuOpenClose;
-            @MenuOpenClose.performed -= instance.OnMenuOpenClose;
-            @MenuOpenClose.canceled -= instance.OnMenuOpenClose;
-        }
-
-        public void RemoveCallbacks(IMenuControlsActions instance)
-        {
-            if (m_Wrapper.m_MenuControlsActionsCallbackInterfaces.Remove(instance))
-                UnregisterCallbacks(instance);
-        }
-
-        public void SetCallbacks(IMenuControlsActions instance)
-        {
-            foreach (var item in m_Wrapper.m_MenuControlsActionsCallbackInterfaces)
-                UnregisterCallbacks(item);
-            m_Wrapper.m_MenuControlsActionsCallbackInterfaces.Clear();
-            AddCallbacks(instance);
-        }
-    }
-    public MenuControlsActions @MenuControls => new MenuControlsActions(this);
     private int m_GamepadSchemeIndex = -1;
     public InputControlScheme GamepadScheme
     {
@@ -493,13 +455,10 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
     public interface IVrActions
     {
         void OnHmdRotation(InputAction.CallbackContext context);
+        void OnMenuOpenClose(InputAction.CallbackContext context);
         void OnHmdPosition(InputAction.CallbackContext context);
         void OnControlerCam(InputAction.CallbackContext context);
         void OnSteer(InputAction.CallbackContext context);
         void OnGasBreak(InputAction.CallbackContext context);
-    }
-    public interface IMenuControlsActions
-    {
-        void OnMenuOpenClose(InputAction.CallbackContext context);
     }
 }

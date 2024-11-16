@@ -15,6 +15,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "MenuOpenClose",
+                    "type": "Button",
+                    "id": "19d37a7e-b6af-4ed4-99aa-ebc5e6df222b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "HmdPosition",
                     "type": "Value",
                     "id": "cd955865-6e77-4400-b4ad-2cd5a03fd450",
@@ -60,6 +69,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "HmdRotation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e35a370f-2177-4308-a480-bf8bd76f9442",
+                    "path": "<XRController>{RightHand}/{PrimaryAction}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MenuOpenClose",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2f0ce1f8-5ea9-45b5-8c49-2bb58059d2e7",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "MenuOpenClose",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -214,34 +245,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "HmdPosition",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "Menu Controls",
-            "id": "c306f703-f711-4e29-b65e-d491fb8c86f4",
-            "actions": [
-                {
-                    "name": "MenuOpenClose",
-                    "type": "Button",
-                    "id": "4460ede4-2709-42a9-a32e-bf097584ec52",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "bdda8677-1ea3-4a1e-ba2a-1b722ce75426",
-                    "path": "<Gamepad>/start",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Gamepad",
-                    "action": "MenuOpenClose",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
