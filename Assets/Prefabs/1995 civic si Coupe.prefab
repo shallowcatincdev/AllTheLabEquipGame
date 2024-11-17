@@ -663,8 +663,8 @@ Transform:
   m_GameObject: {fileID: 4250052890966365431}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.473167, y: -1.5, z: -0.3419404}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalPosition: {x: 0, y: -1.5, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8493406026881242882}
@@ -725,8 +725,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.7752547, y: 2.4174616, z: 5.5620456}
-  m_Center: {x: 0.04103279, y: 1.2270418, z: 0.39512286}
+  m_Size: {x: 2.4698114, y: 2.4174616, z: 5.020302}
+  m_Center: {x: -0.0058579445, y: 1.2270418, z: 0.38709497}
 --- !u!114 &5937822165650996435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -742,8 +742,8 @@ MonoBehaviour:
   cars: []
   maxSpeed: 32
   minSpeed: 16
-  maxFollow: 16
-  minFollow: 8
+  maxFollow: 24
+  minFollow: 12
   lead: 0
 --- !u!1 &4762779665923018224
 GameObject:

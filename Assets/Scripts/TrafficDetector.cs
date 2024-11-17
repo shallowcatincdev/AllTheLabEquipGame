@@ -9,7 +9,7 @@ public class TrafficDetector : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Traffic")
+        if (other.gameObject.tag == "Traffic" || other.gameObject.tag == "Player")
         {
             if (!cars.Contains(other.gameObject))
             {
@@ -20,7 +20,7 @@ public class TrafficDetector : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Traffic")
+        if (other.gameObject.tag == "Traffic" || other.gameObject.tag == "Player")
         {
             if (cars.Contains(other.gameObject))
             {
