@@ -1772,6 +1772,8 @@ MonoBehaviour:
   - 'wow this is a cool guy you have here its uber cool dude thanks for guy '
   - I like this guy its very nice and cool
   textSpeed: 0.1
+  timeBetweenDialogue: 5
+  timer: 0
 --- !u!114 &1975954032
 MonoBehaviour:
   m_ObjectHideFlags: 0

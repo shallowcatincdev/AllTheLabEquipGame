@@ -4,23 +4,26 @@ using UnityEngine;
 using TMPro;
 public class Dialogue : MonoBehaviour
 {
+    //initializing variables
     public TextMeshProUGUI textComponent;
     public string[] lines;
     public float textSpeed;
 
     private int index;
+    private bool startedDial;
 
     // Start is called before the first frame update
     void Start()
     {
         textComponent.text = string.Empty; //empty variable (will enter dialogue through inspector)
-        StartDialogue();
+        //StartDialogue();
+        startedDial = false;
     }//end start
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }//end update
 
     //starts the first piece of dialogue
@@ -33,17 +36,27 @@ public class Dialogue : MonoBehaviour
     //method to progress dialogue
     void PlayLines()
     {
-        //if the last char shown is equal to the last char in lines[], then switch lines
-        if (textComponent.text == lines[index])
+        //plays the first bit of dialogue and subsequent uses of this method will play the rest of the dialogue
+        if (startedDial == false)
         {
-            NextLine();
+            StartDialogue();
+            startedDial = true;
         }//end if
         else
         {
-            //end everything
-            StopAllCoroutines();
-            textComponent.text = lines[index]; //shows all the chars and completes the dialogue
+            //if the last char shown is equal to the last char in lines[], then switch lines
+            if (textComponent.text == lines[index])
+            {
+                NextLine();
+            }//end if
+            else
+            {
+                //end everything
+                StopAllCoroutines();
+                textComponent.text = lines[index]; //shows all the chars and completes the dialogue
+            }//end else
         }//end else
+       
     }//end PlayLines
 
     //plays the lines out
