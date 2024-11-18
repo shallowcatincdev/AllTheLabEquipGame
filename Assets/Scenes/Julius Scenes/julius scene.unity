@@ -889,7 +889,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1975954031}
         m_TargetAssemblyTypeName: Dialogue, Assembly-CSharp
-        m_MethodName: PlayLines
+        m_MethodName: StartBlartingGime
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1772,8 +1772,9 @@ MonoBehaviour:
   - 'wow this is a cool guy you have here its uber cool dude thanks for guy '
   - I like this guy its very nice and cool
   textSpeed: 0.1
-  timeBetweenDialogue: 5
   timer: 0
+  startingTime: 2
+  blartingGime: 0
 --- !u!114 &1975954032
 MonoBehaviour:
   m_ObjectHideFlags: 0
