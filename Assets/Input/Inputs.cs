@@ -80,6 +80,15 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""continue"",
+                    ""type"": ""Button"",
+                    ""id"": ""4fe0c1c7-ffc5-499b-bbdc-fc0a5741a5c8"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -269,6 +278,28 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                     ""action"": ""HmdPosition"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d13655fc-10e9-48b9-89cb-601d002a1428"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""continue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5c2910e0-4b6c-4968-bf13-1ccb3311a272"",
+                    ""path"": ""<XRController>{RightHand}/primaryButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""continue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -305,6 +336,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         m_Vr_ControlerCam = m_Vr.FindAction("ControlerCam", throwIfNotFound: true);
         m_Vr_Steer = m_Vr.FindAction("Steer", throwIfNotFound: true);
         m_Vr_GasBreak = m_Vr.FindAction("GasBreak", throwIfNotFound: true);
+        m_Vr_continue = m_Vr.FindAction("continue", throwIfNotFound: true);
     }
 
     ~@Inputs()
@@ -377,6 +409,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_Vr_ControlerCam;
     private readonly InputAction m_Vr_Steer;
     private readonly InputAction m_Vr_GasBreak;
+    private readonly InputAction m_Vr_continue;
     public struct VrActions
     {
         private @Inputs m_Wrapper;
@@ -387,6 +420,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         public InputAction @ControlerCam => m_Wrapper.m_Vr_ControlerCam;
         public InputAction @Steer => m_Wrapper.m_Vr_Steer;
         public InputAction @GasBreak => m_Wrapper.m_Vr_GasBreak;
+        public InputAction @continue => m_Wrapper.m_Vr_continue;
         public InputActionMap Get() { return m_Wrapper.m_Vr; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -414,6 +448,9 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
             @GasBreak.started += instance.OnGasBreak;
             @GasBreak.performed += instance.OnGasBreak;
             @GasBreak.canceled += instance.OnGasBreak;
+            @continue.started += instance.OnContinue;
+            @continue.performed += instance.OnContinue;
+            @continue.canceled += instance.OnContinue;
         }
 
         private void UnregisterCallbacks(IVrActions instance)
@@ -436,6 +473,9 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
             @GasBreak.started -= instance.OnGasBreak;
             @GasBreak.performed -= instance.OnGasBreak;
             @GasBreak.canceled -= instance.OnGasBreak;
+            @continue.started -= instance.OnContinue;
+            @continue.performed -= instance.OnContinue;
+            @continue.canceled -= instance.OnContinue;
         }
 
         public void RemoveCallbacks(IVrActions instance)
@@ -470,5 +510,6 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         void OnControlerCam(InputAction.CallbackContext context);
         void OnSteer(InputAction.CallbackContext context);
         void OnGasBreak(InputAction.CallbackContext context);
+        void OnContinue(InputAction.CallbackContext context);
     }
 }

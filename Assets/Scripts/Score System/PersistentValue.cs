@@ -5,7 +5,8 @@ using UnityEngine;
 public class PersistentValue : MonoBehaviour
 {
 
-    public float score;
+    public int hits;
+    public int time;
 
 
     // Start is called before the first frame update
