@@ -275,11 +275,21 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
     ],
     ""controlSchemes"": [
         {
-            ""name"": ""Gamepad"",
-            ""bindingGroup"": ""Gamepad"",
+            ""name"": ""New Control Scheme"",
+            ""bindingGroup"": ""New Control Scheme"",
             ""devices"": [
                 {
                     ""devicePath"": ""<Gamepad>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                },
+                {
+                    ""devicePath"": ""<XRHMD>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                },
+                {
+                    ""devicePath"": ""<XRController>"",
                     ""isOptional"": false,
                     ""isOR"": false
                 }
@@ -443,13 +453,13 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         }
     }
     public VrActions @Vr => new VrActions(this);
-    private int m_GamepadSchemeIndex = -1;
-    public InputControlScheme GamepadScheme
+    private int m_NewControlSchemeSchemeIndex = -1;
+    public InputControlScheme NewControlSchemeScheme
     {
         get
         {
-            if (m_GamepadSchemeIndex == -1) m_GamepadSchemeIndex = asset.FindControlSchemeIndex("Gamepad");
-            return asset.controlSchemes[m_GamepadSchemeIndex];
+            if (m_NewControlSchemeSchemeIndex == -1) m_NewControlSchemeSchemeIndex = asset.FindControlSchemeIndex("New Control Scheme");
+            return asset.controlSchemes[m_NewControlSchemeSchemeIndex];
         }
     }
     public interface IVrActions
