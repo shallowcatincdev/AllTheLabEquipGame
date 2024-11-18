@@ -29,9 +29,11 @@ public class Dialogue : MonoBehaviour
         blartingGime = false;
     }//end start
 
+    //ACTUALLY starts the dialogue
     public void StartBlartingGime()
     {
         //plays the first bit of dialogue and subsequent uses of this method will play the rest of the dialogue
+        //a good portion of this is if the player wants to manually skip dialogue
         if (startedDial == false)
         {
             StartDialogue();
@@ -40,7 +42,8 @@ public class Dialogue : MonoBehaviour
         }//end if
         else
         {
-            PlayLines();
+   
+            PlayLines(); 
         }//end else
 
         blartingGime = true;
@@ -50,15 +53,18 @@ public class Dialogue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //automatic dialogue
         timer -= Time.deltaTime;
 
         if (timer <= 0f)
         {
-            Debug.Log("gooning");
+            //Debug.Log("gooning"); //tracing
+            //resetting the timer
             timer = startingTime;
 
-            if (blartingGime == true)
+            if (blartingGime == true) //starts reading out the lines after starting dialogue
             {
+                //stopping coroutines (dialogue) and playing the next thingy
                 StopAllCoroutines();
                 NextLine();
             }//end if

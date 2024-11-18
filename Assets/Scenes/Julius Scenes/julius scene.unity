@@ -1773,7 +1773,7 @@ MonoBehaviour:
   - I like this guy its very nice and cool
   textSpeed: 0.1
   timer: 0
-  startingTime: 2
+  startingTime: 5
   blartingGime: 0
 --- !u!114 &1975954032
 MonoBehaviour:
