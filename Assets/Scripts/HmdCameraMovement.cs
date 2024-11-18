@@ -8,7 +8,7 @@ public class HmdCameraMovement : MonoBehaviour
     [SerializeField] Camera cam;
     [SerializeField] Transform camOrgin;
 
-    bool vrActive;
+    public bool vrActive;
 
     public void OnHmdPosition(InputValue value)
     {

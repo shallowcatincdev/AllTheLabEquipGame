@@ -42,7 +42,7 @@ public class CarControl : MonoBehaviour
 
     void Update()
     {
-        steeringWheel.transform.rotation = Quaternion.Euler(-transform.rotation.x, -transform.rotation.y, moveDirec.x * -180);
+        //steeringWheel.transform.rotation = Quaternion.Euler(-transform.rotation.x, -transform.rotation.y, moveDirec.x * -180);
 
 
         float forwardSpeed = Vector3.Dot(transform.forward, rigidBody.velocity);

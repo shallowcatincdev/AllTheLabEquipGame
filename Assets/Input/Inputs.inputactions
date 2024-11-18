@@ -253,11 +253,21 @@
     ],
     "controlSchemes": [
         {
-            "name": "Gamepad",
-            "bindingGroup": "Gamepad",
+            "name": "New Control Scheme",
+            "bindingGroup": "New Control Scheme",
             "devices": [
                 {
                     "devicePath": "<Gamepad>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<XRHMD>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<XRController>",
                     "isOptional": false,
                     "isOR": false
                 }

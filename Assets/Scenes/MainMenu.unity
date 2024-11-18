@@ -329,6 +329,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 243222071281953527, guid: 8f4efb04ab714704abf821e2b2d8f5e1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1365500272907483595, guid: 8f4efb04ab714704abf821e2b2d8f5e1, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2566224087720185182, guid: 8f4efb04ab714704abf821e2b2d8f5e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.17524195
@@ -373,7 +381,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Car
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 4068487869130141764, guid: 8f4efb04ab714704abf821e2b2d8f5e1, type: 3}
+      propertyPath: steeringWheel
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4068487869130141764, guid: 8f4efb04ab714704abf821e2b2d8f5e1, type: 3}
     m_RemovedGameObjects:
     - {fileID: 5882165728785591167, guid: 8f4efb04ab714704abf821e2b2d8f5e1, type: 3}
     - {fileID: 4988982543100548900, guid: 8f4efb04ab714704abf821e2b2d8f5e1, type: 3}
